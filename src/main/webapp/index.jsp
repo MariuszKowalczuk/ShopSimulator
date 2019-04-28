@@ -11,7 +11,7 @@
 <body>
 <div class="container">
     <c:if test="${sessionScope.get('login') ne null}">
-    <p> Witaj użytkowniku ${sessionScope.get('login')}</p></c:if>
+        <p> Witaj użytkowniku ${sessionScope.get('login')}</p></c:if>
     <c:if test="${sessionScope.get('login') eq null}">
         <form name="log-form" method="post" action="/login">
             <input type="text" name="login" placeholder="login"/>
@@ -21,10 +21,28 @@
             </button>
         </form>
     </c:if>
+    <form name="reg-form" method="post" action="/register">
+        <input type="text" name="login" placeholder="login"/>
+        <input type="password" name="password" placeholder="password"/>
+        <input type="text" name="adress" placeholder="adress"/>
+        <button type="submit">
+            zarejestruj
+        </button>
+    </form>
 </div>
-<%
+<c:forEach items="${applicationScope.get('products')}" var="product">
+    <p>
+            <c:out value="${product}" escapeXml="false"/>
+    <form name="add-form" method="post" action="/addItem">
+        <input type="text" name="quantity" value="1"/>
+            <%--<input value="${product.getId}" name="product_id" />--%>
 
-%>
+        <button type="submit">dodaj</button>
+    </form>
+    </p>
+
+</c:forEach>
+
 
 </body>
 <html>
