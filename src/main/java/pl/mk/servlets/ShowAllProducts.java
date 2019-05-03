@@ -21,6 +21,7 @@ public class ShowAllProducts extends HttpServlet {
         ProductHibernateRepository phr = new ProductHibernateRepository();
         List<Product> all = phr.findAll();
         getServletContext().setAttribute("products", all);
+
         resp.sendRedirect("index.jsp");
 
     }

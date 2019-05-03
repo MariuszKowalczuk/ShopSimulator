@@ -22,11 +22,13 @@ public class AddItemServlet extends HttpServlet {
         Object product_id1 = getServletContext().getAttribute("product_id");
         String quantity = req.getParameter("quantity");
         String product_id = req.getParameter("product_id");
+        Integer product_id2 = (Integer) getServletContext().getAttribute("product_id");
         Product product = new Product();
-        product.setId((Integer) product_id1);
+//        product.setId(product_id2);
+        product.setId(Integer.valueOf(product_id));
         Position position = new Position();
         position.setProduct(product);
-        position.setQuantity((Integer) quantity1);
+        position.setQuantity((Integer.valueOf(quantity)));
         PositionHibernateRepository phr = new PositionHibernateRepository();
         phr.save(position);
 

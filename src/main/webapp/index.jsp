@@ -30,12 +30,15 @@
         </button>
     </form>
 </div>
+
 <c:forEach items="${applicationScope.get('products')}" var="product">
     <p>
-            <c:out value="${product}" escapeXml="false"/>
+            <c:out value="${product.toString()}"/>
     <form name="add-form" method="post" action="/addItem">
         <input type="text" name="quantity" value="1"/>
-            <%--<input value="${product.getId}" name="product_id" />--%>
+
+
+        <input type="hidden" name="product_id" value="${product.id}"/>
 
         <button type="submit">dodaj</button>
     </form>
