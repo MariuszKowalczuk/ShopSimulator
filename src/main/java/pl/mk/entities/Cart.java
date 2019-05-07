@@ -19,6 +19,8 @@ public class Cart implements Entity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
     private Integer Id;
+
+
 }
 
 
