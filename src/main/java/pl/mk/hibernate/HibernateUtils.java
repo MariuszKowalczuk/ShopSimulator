@@ -8,7 +8,10 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Environment;
-import pl.mk.entities.*;
+import pl.mk.entities.Order;
+import pl.mk.entities.Position;
+import pl.mk.entities.Product;
+import pl.mk.entities.User;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -57,7 +60,7 @@ public class HibernateUtils {
             registryBuilder.applySettings(properties);
             StandardServiceRegistry serviceRegistry = registryBuilder.build();
             Metadata metadata = new MetadataSources(serviceRegistry)
-                    .addAnnotatedClass(Cart.class)
+                    //.addAnnotatedClass(CartEntity.class)
                     .addAnnotatedClass(Position.class)
                     .addAnnotatedClass(Order.class)
                     .addAnnotatedClass(Product.class)

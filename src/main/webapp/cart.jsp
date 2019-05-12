@@ -7,9 +7,9 @@
     <title>Title</title>
 </head>
 <body>
-<c:forEach items="${applicationScope.get('positions')}" var="position">
+<c:forEach items="${sessionScope.get('cart').positions}" var="position">
     <p>
-        <c:out value="${position}"/>
+        <c:out value="${position.toString()}"/>
     </p>
 </c:forEach>
 </body>

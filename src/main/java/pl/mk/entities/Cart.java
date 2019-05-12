@@ -1,27 +1,26 @@
 package pl.mk.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.Getter;
 
-import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Mariusz Kowalczuk
  */
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@javax.persistence.Entity
-@Table(name = "cart", schema = "shop")
-public class Cart implements Entity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID")
-    private Integer Id;
+@Getter
+public class Cart {
+    private List<Product> positions = new ArrayList<>();
 
+    public void addItem(Product product, Integer quantity) {
+        for (int i = 0; i < quantity; i++) {
+            positions.add(product);
+        }
 
+    }
 }
+
+
 
 
 
